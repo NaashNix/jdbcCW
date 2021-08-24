@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="527.0" prefWidth="387.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditOrderDetailsController">
+   <children>
+      <ImageView fitHeight="91.0" fitWidth="387.0" layoutY="436.0">
+         <image>
+            <Image url="@../assets/loginBackground.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="19.0" text="Edit Order ">
+         <font>
+            <Font name="Roboto" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="191.0" layoutY="20.0" prefHeight="33.0" prefWidth="68.0" text="O-ID : ">
+         <font>
+            <Font name="Roboto Black" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtReqAmount" layoutX="35.0" layoutY="210.0" onKeyReleased="#enableDoneButton" prefHeight="40.0" prefWidth="315.0" promptText="Requested Amount">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtDiscountAmount" layoutX="35.0" layoutY="285.0" onKeyReleased="#enableDoneButton" prefHeight="40.0" prefWidth="222.0" promptText="Discount">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="CustomerEditDone" disable="true" layoutX="33.0" layoutY="407.0" onAction="#CustomerEditDone" prefHeight="40.0" prefWidth="153.0" style="-fx-background-color: #2980b9;" text="DONE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnClear" layoutX="193.0" layoutY="407.0" onAction="#cancel" prefHeight="40.0" prefWidth="153.0" style="-fx-background-color: #7f8c8d;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label fx:id="orderIDLabel" layoutX="261.0" layoutY="20.0" prefHeight="33.0" prefWidth="74.0">
+         <font>
+            <Font name="Roboto Black" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="79.0" text="Item Code : ">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="192.0" text="Requested Amount" />
+      <Label layoutX="35.0" layoutY="265.0" text="Discount" />
+      <Label fx:id="itemCodeLabel" layoutX="208.0" layoutY="80.0" prefHeight="26.0" prefWidth="104.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="355.0" text="Total : " />
+      <Label fx:id="lblEditedItemTotal" layoutX="108.0" layoutY="352.0" text="0.00">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="129.0" text="Qty. On Hand">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtQtyOnHand" layoutX="208.0" layoutY="126.0" prefHeight="26.0" prefWidth="104.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

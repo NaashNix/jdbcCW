@@ -1,0 +1,62 @@
+CREATE DATABASE IF NOT EXISTS Shop;
+CREATE TABLE IF NOT EXISTS Users(
+    id VARCHAR(15) NOT NULL DEFAULT 'cashi01',
+    roll VARCHAR(5) NOT NULL DEFAULT 'cashi',
+    password VARCHAR(16) NOT NULL DEFAULT 'password',
+    name VARCHAR(45) NOT NULL DEFAULT 'unknown',
+    CONSTRAINT PRIMARY KEY (id)
+);
+
+INSERT INTO Users VALUES('admin','admin','1234','Ravindu Thilakshana');
+INSERT INTO Users VALUES('cashi','cashi','1234','Cashire001');
+
+CREATE TABLE IF NOT EXISTS Customer(
+    custID VARCHAR(6),
+    custTitle VARCHAR(5),
+    custName VARCHAR(30),
+    custAddress VARCHAR(30),
+    city VARCHAR(20),
+    province VARCHAR(20),
+    postalCode VARCHAR(9),
+    CONSTRAINT PRIMARY KEY (custID)
+);
+    CREATE TABLE IF NOT EXISTS idMemory(
+        idInt int NOT NULL AUTO_INCREMENT,
+        CustID VARCHAR(6),
+        CONSTRAINT PRIMARY KEY (idInt)
+    );
+
+SELECT custID FROM idMemory ORDER BY idInt DESC LIMIT 1;
+ALTER TABLE Customer
+ADD incrmnt int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE idMemory AUTO_INCREMENT = 1
+
+CREATE TABLE IF NOT EXISTS Item(
+    itemID VARCHAR(6),
+    description VARCHAR(50),
+    packSize VARCHAR(20),
+    unitPrice DECIMAL(6,2),
+    qtyOnHand INT(5),
+    CONSTRAINT PRIMARY KEY (itemID)
+);
+
+
+DROP TABLE IF EXISTS Orders;
+CREATE TABLE IF NOT EXISTS Orders(
+    orderID VARCHAR(6),
+    orderDate DATE,
+    CustID VARCHAR(6),
+    CONSTRAINT PRIMARY KEY(orderID),
+    CONSTRAINT FOREIGN KEY (CustID) REFERENCES Customer(CustID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS orderDetail(
+    orderID VARCHAR(6),
+    itemID VARCHAR(6),
+    orderQty INT(11),
+    discount DECIMAL(6,2),
+   CONSTRAINT PRIMARY KEY (orderID,itemID),
+   CONSTRAINT FOREIGN KEY (itemID) REFERENCES Item(itemID) ON DELETE CASCADE ON UPDATE CASCADE ,
+   CONSTRAINT FOREIGN KEY (orderID) REFERENCES Orders(orderID) ON DELETE CASCADE ON UPDATE CASCADE
+);
